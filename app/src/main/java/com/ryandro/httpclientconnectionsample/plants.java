@@ -2,7 +2,7 @@ package com.ryandro.httpclientconnectionsample;
 
 import android.support.annotation.Nullable;
 
-public class PlantDO {
+public class plants {
     /*{
         "id": "1893",
             "genus": "Acer",

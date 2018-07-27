@@ -4,13 +4,13 @@ import java.util.List;
 
 public class PlantList {
 
-    private List<PlantDO> plantDOList;
+    private List<plants> plantsList;
 
-    public List<PlantDO> getPlantDOList() {
-        return plantDOList;
+    public List<plants> getPlantsList() {
+        return plantsList;
     }
 
-    public void setPlantDOList(List<PlantDO> plantDOList) {
-        this.plantDOList = plantDOList;
+    public void setPlantsList(List<plants> plantsList) {
+        this.plantsList = plantsList;
     }
 }

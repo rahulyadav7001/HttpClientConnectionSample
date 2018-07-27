@@ -60,7 +60,7 @@ public class HttpHelperAsynctask extends AsyncTask<String, Integer, String> {
                     stringBuilder.append(strLine);
                 }
                 PlantList plantList = PlantParsar.getData(stringBuilder);
-                Log.d("Response",""+plantList.getPlantDOList().size());
+//                Log.d("Response",""+plantList.getPlantsList().size());
 
             } finally {
                 connection.disconnect();
@@ -82,27 +82,27 @@ public class HttpHelperAsynctask extends AsyncTask<String, Integer, String> {
 
         Log.d("Response ", "\n\n\n---------------Data Start----------------------------\n" + s);
         Log.d("Response ", "\n----------------------End Data ---------------------\n");
-        parseData(s);
+//        parseData(s);
         progressDialog.dismiss();
     }
 
     private void parseData(String s) {
         try {
-            ArrayList<PlantDO> plantDOArrayList = new ArrayList<>();
+            ArrayList<plants> plantsArrayList = new ArrayList<>();
             JSONObject jsonObject = new JSONObject(s);
             JSONArray plantObject = jsonObject.getJSONArray("plants");
 
             for (int i = 0; i < plantObject.length(); i++) {
                 JSONObject jsonObject1 = plantObject.getJSONObject(i);
-                PlantDO plantDO = new PlantDO();
-                plantDO.setId(jsonObject1.getInt("id"));
-                plantDO.setGenus(jsonObject1.getString("genus"));
-                plantDO.setSpecies(jsonObject1.getString("species"));
-                plantDO.setCultivar(jsonObject1.getString("cultivar"));
-                plantDO.setCommon(jsonObject1.getString("common"));
-                plantDOArrayList.add(plantDO);
+                plants plants = new plants();
+                plants.setId(jsonObject1.getInt("id"));
+                plants.setGenus(jsonObject1.getString("genus"));
+                plants.setSpecies(jsonObject1.getString("species"));
+                plants.setCultivar(jsonObject1.getString("cultivar"));
+                plants.setCommon(jsonObject1.getString("common"));
+                plantsArrayList.add(plants);
             }
-            Log.d("PlantDOArrayListSize", "" + plantDOArrayList.size());
+            Log.d("PlantDOArrayListSize", "" + plantsArrayList.size());
         } catch (JSONException e) {
             e.printStackTrace();
         }
